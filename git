@@ -1,0 +1,27 @@
+# git aliases
+alias gs='git status -sb'
+alias gb='git branch -r'
+# alias gnew='git push -u origin $(vcprompt -g %b)'
+
+gdiff(){
+  if [ -z $@ ]
+  then
+    git diff
+  else
+    for i in "$@"; do
+      git diff $i
+      if ! [ -z $i ]
+      then
+        read -p "Add $i to commit? (y/n) " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]
+        then
+          git add $i
+        fi
+        echo
+      fi
+    done
+  fi
+  echo -e "\n----------\n"
+  git status -sb
+}

@@ -1,0 +1,13 @@
+# essential aliases
+alias o.='open .'
+alias ls="ls -aGp"
+alias ll="ls -aGpl"
+alias lo="ls -aGpo"
+alias l1="ls -aGp1"
+alias c.="code ."
+alias h='history | grep'
+alias v='vim'
+
+# grep
+alias g="grep"
+alias gv="grep -v"
